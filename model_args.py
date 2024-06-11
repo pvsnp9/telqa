@@ -40,7 +40,7 @@ class PEFTArgs:
     lora_dropout: float = 0.05
     bias: str = "none"
     task_type: str = "CAUSAL_LM"
-    target_modules: List[str] = field(default_factory=lambda: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"])
+    target_modules: List[str] = field(default_factory=lambda: ["q_proj", "k_proj", "v_proj", "o_proj"])
     
 @dataclass
 class LocalArgs:

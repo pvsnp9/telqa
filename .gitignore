@@ -4,7 +4,7 @@
 /phi3_results/*
 /wandb/*
 /phi_fit.ipynb
-/phi3_samples.py
+
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
 **/*.py[cod]
@@ -160,6 +160,3 @@
 
 # Cython debug symbols
 **/cython_debug/
-
-# Custom ignore
-**/data

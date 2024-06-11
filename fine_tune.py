@@ -75,7 +75,7 @@ def start_fine_tune():
         dataset_text_field = "input_data",
         tokenizer=tokenizer
     )
-
+    
     start_time = time.time()
     trainer.train()
     end_time = time.time()
@@ -86,3 +86,8 @@ def start_fine_tune():
     trainer.log_metrics("train", metrics)
     trainer.save_metrics("train", metrics)
     trainer.save_state()
+    
+    
+    
+if __name__ =="__main__":
+    start_fine_tune()
