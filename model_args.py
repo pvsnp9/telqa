@@ -5,7 +5,7 @@ from typing import Optional, Dict, List
 @dataclass
 class ModelArgs:
     bf16: bool = True
-    do_eval: bool = False
+    do_eval: bool = True
     learning_rate: float = 5.0e-05
     log_level: str = "info"
     logging_steps: int = 20
@@ -15,8 +15,8 @@ class ModelArgs:
     max_steps: int = -1
     output_dir: str = "./phi3_results"
     overwrite_output_dir: bool = True
-    per_device_eval_batch_size: int = 1
-    per_device_train_batch_size: int = 1
+    per_device_eval_batch_size: int = 100
+    per_device_train_batch_size: int = 100
     remove_unused_columns: bool = True
     save_steps: int = 100
     save_total_limit: int = 1

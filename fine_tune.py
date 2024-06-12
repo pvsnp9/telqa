@@ -44,6 +44,7 @@ def construct_model_tokenizer(checkpoint_path: str = "microsoft/Phi-3-mini-4k-in
     tokenizer.pad_token = tokenizer.unk_token  # use unk rather than eos token to prevent endless generation
     tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
     tokenizer.padding_side = 'right'
+    
 
     print(f"Memory footprint: {model.get_memory_footprint() / 1e9} GB")
     return model, tokenizer
@@ -60,8 +61,8 @@ def get_dataset(tokenizer, create:bool = False):
         
         
 # finetune 
-def start_fine_tune():
-    model, tokenizer = construct_model_tokenizer()
+def start_fine_tune(checkpoint: str = "microsoft/Phi-3-mini-4k-instruct"):
+    model, tokenizer = construct_model_tokenizer(checkpoint)
     train_args, lora_args = get_ft_args()
     train_data, test_data = get_dataset(tokenizer, True)
     
@@ -90,4 +91,4 @@ def start_fine_tune():
     
     
 if __name__ =="__main__":
-    start_fine_tune()
+    start_fine_tune("./phi3_results/checkpoint-6200")
